@@ -1,0 +1,1120 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="description" content="Аналіз 19 декларацій Антона Ковальського в Реєстрі НАЗК (2015–2025): доходи, майно, пов'язані особи, траєкторія поруч із Мустецою."><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Досьє Ковальського</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#F4F6F4; --surface:#FFFFFF; --sunk:#EAEEEB;
+    --ink:#15181A; --ink-2:#3C4547; --muted:#6B7574; --hair:#D3DAD6;
+    --accent:#2C5049; --accent-soft:#E2ECE8;
+    --crit:#8E3626; --crit-soft:#F6E3DE;
+    --warn:#8A6418; --warn-soft:#F5EBD8;
+    --ok:#3B6045; --ok-soft:#E3EDE5;
+    /* Кольори графіка. Валідовано validate_palette.js: PASS за смугою світлоти,
+       порогом насиченості, розрізненням при дальтонізмі (ΔE 10.5 protan / 23.3
+       tritan), нормальним зором (19.4) і контрастом до поверхні — і в світлій, і
+       в темній темі, тож пара одна на обидві. Акцент документа #2C5049 для міток
+       не годиться: завалює поріг насиченості й читається сірим. */
+    --c-cash:#0F9C7E; --c-bank:#C2831C;
+    /* Другий графік: дохід vs приріст активів. Та сама перевірка, PASS у
+       світлій і темній темі. Бірюзовий свідомо лишено кольором активів —
+       він означає те саме, що й у графіку вище. */
+    --c-inc:#6A78C4; --c-ass:#0F9C7E; --c-neg:#8E3626;
+    --serif:"Literata",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+    --mono:"IBM Plex Mono","Cascadia Mono",Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#111513; --surface:#191E1C; --sunk:#141917;
+      --ink:#E9EDE9; --ink-2:#C2CAC6; --muted:#8B9894; --hair:#2C3633;
+      --accent:#78AFA3; --accent-soft:#1E2A27;
+      --crit:#D98A76; --crit-soft:#2E1E19;
+      --warn:#D0A855; --warn-soft:#2B2416;
+      --ok:#83B08D; --ok-soft:#1B2620;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#111513; --surface:#191E1C; --sunk:#141917;
+    --ink:#E9EDE9; --ink-2:#C2CAC6; --muted:#8B9894; --hair:#2C3633;
+    --accent:#78AFA3; --accent-soft:#1E2A27;
+    --crit:#D98A76; --crit-soft:#2E1E19;
+    --warn:#D0A855; --warn-soft:#2B2416;
+    --ok:#83B08D; --ok-soft:#1B2620;
+  }
+
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+  h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0}
+  p{margin:0}
+  a{color:var(--accent);text-underline-offset:2px}
+  a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* ── шапка ─────────────────────────────────────────── */
+  .masthead{border-bottom:2px solid var(--ink);padding-block:36px 20px;margin-bottom:34px}
+  .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+          color:var(--accent);margin-bottom:14px}
+  h1{font-size:clamp(30px,6vw,46px);line-height:1.08;font-weight:700;letter-spacing:-.015em}
+  .role{font-size:17px;color:var(--ink-2);margin-top:10px;max-width:60ch}
+  .idline{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:20px;
+          font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+  .idline b{color:var(--ink-2);font-weight:500}
+
+  section{margin-top:52px}
+  h2{font-size:24px;font-weight:600;letter-spacing:-.01em;
+     padding-bottom:9px;border-bottom:1px solid var(--hair);margin-bottom:20px}
+  h2 .n{font-family:var(--mono);font-size:13px;color:var(--accent);
+        margin-right:12px;font-weight:400;vertical-align:2px}
+  h3{font-size:17px;font-weight:600;margin:26px 0 9px}
+  .lede{font-size:17.5px;line-height:1.62;color:var(--ink-2)}
+  .body p + p{margin-top:13px}
+  .body{max-width:66ch}
+
+  /* ── висновки ──────────────────────────────────────── */
+  .findings{display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:3px;overflow:hidden}
+  .finding{background:var(--surface);padding:16px 18px;display:grid;
+           grid-template-columns:auto 1fr;gap:14px;align-items:start}
+  .finding .mark{font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+                 padding:3px 7px;border-radius:2px;white-space:nowrap;margin-top:2px}
+  .m-crit{background:var(--crit-soft);color:var(--crit)}
+  .m-warn{background:var(--warn-soft);color:var(--warn)}
+  .m-ok{background:var(--ok-soft);color:var(--ok)}
+  .finding strong{display:block;font-weight:600;margin-bottom:3px}
+  .finding span{color:var(--ink-2);font-size:15px}
+
+  /* ── таблиці ───────────────────────────────────────── */
+  .scroll{overflow-x:auto;margin-top:6px;border-block:1px solid var(--hair)}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--hair);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+     color:var(--muted);font-weight:500;white-space:nowrap}
+  td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.break td{background:var(--accent-soft)}
+  .yr{font-family:var(--mono);color:var(--muted)}
+
+  /* ── кар'єра ───────────────────────────────────────── */
+  .track{border-left:2px solid var(--hair);margin-left:6px;padding-left:22px;
+         display:flex;flex-direction:column;gap:22px}
+  .stop{position:relative}
+  .stop::before{content:"";position:absolute;left:-28px;top:7px;width:9px;height:9px;
+                border-radius:50%;background:var(--ground);border:2px solid var(--accent)}
+  .stop.lead::before{background:var(--accent)}
+  .stop .when{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.04em}
+  .stop .what{font-weight:600;margin-top:2px}
+  .stop .where{color:var(--muted);font-size:14.5px}
+
+  /* ── врізки ────────────────────────────────────────── */
+  .note{background:var(--sunk);border-left:3px solid var(--accent);
+        padding:15px 18px;margin-top:20px;font-size:15px;color:var(--ink-2)}
+  .note b{color:var(--ink)}
+  .note.crit{border-left-color:var(--crit)}
+  .note.ok{border-left-color:var(--ok)}
+
+  /* ── реєстр декларацій ─────────────────────────────── */
+  .docs{display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:3px;overflow:hidden}
+  .doc{background:var(--surface);padding:10px 14px;display:grid;
+       grid-template-columns:52px 1fr auto;gap:12px;align-items:baseline;font-size:14.5px}
+  .doc .y{font-family:var(--mono);color:var(--accent);font-weight:500}
+  .doc .t{color:var(--ink-2)}
+  .doc .t em{font-style:normal;color:var(--muted);font-size:13px;display:block}
+  .doc a{font-family:var(--mono);font-size:12px;white-space:nowrap}
+  @media (max-width:520px){
+    .doc{grid-template-columns:44px 1fr;row-gap:4px}
+    .doc a{grid-column:2}
+    .finding{grid-template-columns:1fr}
+  }
+
+  /* ── графік ────────────────────────────────────────── */
+  .chart{margin-top:16px;background:var(--surface);border:1px solid var(--hair);
+         border-radius:3px;padding:14px 12px 6px;position:relative}
+  .chart .bar .hit{cursor:pointer}
+  .chart .bar:hover rect:not(.hit){opacity:.82}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:2px 0 8px 4px;
+          font-size:13.5px;color:var(--ink-2)}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:2px;
+            margin-right:7px;vertical-align:-1px}
+  .tip{position:absolute;pointer-events:none;opacity:0;transition:opacity .12s;
+       background:var(--ink);color:var(--ground);padding:8px 11px;border-radius:3px;
+       font-family:var(--mono);font-size:12px;line-height:1.55;white-space:nowrap;z-index:5}
+  @media (prefers-reduced-motion:reduce){.tip{transition:none}}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--hair);
+         font-size:13.5px;color:var(--muted)}
+  footer p + p{margin-top:9px}
+  .disclaimer{font-family:var(--serif);font-style:italic;font-size:15px;
+              color:var(--ink-2);border:1px solid var(--hair);border-radius:3px;
+              padding:15px 18px;margin-top:28px;background:var(--surface)}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">Досьє за деклараціями · НАЗК · 19 документів · 2015–2025 · доповнено 21.09</div>
+  <h1>Ковальський Антон Анатолійович</h1>
+  <p class="role">Виконувач обов'язків Генерального прокурора з 17.09.2026. До того — керівник Хмельницької обласної прокуратури (з липня 2025), ще раніше — керівник Чернівецької обласної прокуратури, заступник керівника Вінницької обласної прокуратури.</p>
+  <div class="idline">
+    <span><b>ID декларанта</b> 3985</span>
+    <span><b>Відповідальне становище</b> так</span>
+    <span><b>Аналіз</b> 21.09.2026</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="n">01</span>Що показують декларації</h2>
+  <div class="findings">
+    <div class="finding"><span class="mark m-crit">високий</span><div>
+      <strong>ФОП дружини з'явився у 2023-му і одразу дав 5,24 млн ₴</strong>
+      <span>До 2022 року включно вона не мала підприємницького доходу взагалі — лише зарплата продавця-консультанта, допомога по безробіттю та виплати на дитину. Стрибок припадає на другий рік його керівництва Чернівецькою обласною прокуратурою.</span>
+    </div></div>
+    <div class="finding"><span class="mark m-crit">високий</span><div>
+      <strong>Родина орендує житло в екс-слідчого СБУ, який балотувався в САП</strong>
+      <span>Квартиру 92 м² у Чернівцях із 04.09.2023 надає <b>Житар Олександр Петрович</b> — екс-слідчий УСБУ в Чернівецькій області, у 2020-му кандидат на посади в Офісі генпрокурора і САП (обох не обійняв), відтоді посадовець держкомпаній оборонного експорту.</span>
+    </div></div>
+    <div class="finding"><span class="mark m-warn">перевірити</span><div>
+      <strong>Власної нерухомості немає з 2019 року</strong>
+      <span>Єдину квартиру (45,8 м², Вінниця) продано у 2019-му за 877 500 ₴. Відтоді все житло родини — орендоване або надане: квартири трьох різних власників, плюс службова від Чернівецької міської ради.</span>
+    </div></div>
+    <div class="finding"><span class="mark m-warn">перевірити</span><div>
+      <strong>Рахунок у Bank of Montreal, Канада</strong>
+      <span>У дружини — 6 000 CAD у BMO (Weston, Онтаріо), задекларовано за 2022 рік; сам рахунок значиться відкритим у 2022–2024 роках, у декларації за 2025-й його вже немає.</span>
+    </div></div>
+    <div class="finding"><span class="mark m-ok">чисто</span><div>
+      <strong>Криптовалюти, цінних паперів і корпоративних прав немає</strong>
+      <span>Розділи 7–10 порожні в усіх 19 деклараціях за 11 років. Жодної згадки про криптоактиви.</span>
+    </div></div>
+    <div class="finding"><span class="mark m-ok">чисто</span><div>
+      <strong>Родичів на держслужбі не знайдено</strong>
+      <span>Дружина, мати, брат і діти перевірені і за локальною базою на 1,49 млн декларацій, і суцільним пошуком у Реєстрі НАЗК — жоден не є і не був декларантом.</span>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">02</span>Кар'єра</h2>
+  <div class="body">
+    <p class="lede">Уся службова лінія — прокуратура, з одним нез'ясованим епізодом. Три обласні прокуратури за п'ять років на керівних посадах.</p>
+  </div>
+  <div class="track" style="margin-top:24px">
+    <div class="stop">
+      <div class="when">2015 — 2016</div>
+      <div class="what">Начальник відділу нагляду за додержанням законів органами фіскальної служби</div>
+      <div class="where">Прокуратура Вінницької області</div>
+    </div>
+    <div class="stop">
+      <div class="when">квітень 2017 · виправлена декларація за 2016</div>
+      <div class="what">Заступник начальника управління — начальник відділу</div>
+      <div class="where">Головне управління ДФС у Вінницькій області — єдиний документ, де вказано не прокуратуру. У щорічній декларації за той самий 2016 рік місцем роботи названо прокуратуру.</div>
+    </div>
+    <div class="stop">
+      <div class="when">2017 — 2019</div>
+      <div class="what">Начальник управління нагляду у кримінальному провадженні</div>
+      <div class="where">Прокуратура Вінницької області</div>
+    </div>
+    <div class="stop">
+      <div class="when">2020 — 2021</div>
+      <div class="what">Заступник керівника Вінницької обласної прокуратури</div>
+      <div class="where">Перша посада з відповідальним становищем</div>
+    </div>
+    <div class="stop lead">
+      <div class="when">кінець 2021 — 2025</div>
+      <div class="what">Керівник Чернівецької обласної прокуратури</div>
+      <div class="where">Декларація кандидата подана 13.12.2021</div>
+    </div>
+    <div class="stop lead">
+      <div class="when">з липня 2025</div>
+      <div class="what">Керівник Хмельницької обласної прокуратури</div>
+      <div class="where">Декларація кандидата подана 02.07.2025</div>
+    </div>
+  </div>
+  <h3>Коли в деклараціях з'являється кожен член сім'ї</h3>
+  <div class="body">
+    <p><b>Дружина була від самого початку.</b> Ковальська Оксана Іванівна вказана вже в найпершій декларації — щорічній за 2015 рік, поданій 22.10.2016 — і далі в усіх без винятку п'ятнадцяти щорічних та виправлених деклараціях, незмінно як «дружина». Появи посеред кар'єри тут немає: подружжя зафіксоване задовго до кар'єрного зростання. Рухалися інші — дочка й мати.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Особа</th><th>Уперше</th><th>Востаннє</th><th>Що це означає</th></tr></thead>
+      <tbody>
+        <tr><td>Ковальська Оксана Іванівна — дружина</td><td class="yr">2015</td><td class="yr">2025</td><td>у всіх 15 деклараціях, статус жодного разу не змінювався</td></tr>
+        <tr><td>Син</td><td class="yr">2015</td><td class="yr">2025</td><td>у всіх 15 деклараціях</td></tr>
+        <tr><td>Дочка</td><td class="yr">2018</td><td class="yr">2025</td><td>народження дитини; того ж року задекларовано допомогу по народженню 20 530 ₴</td></tr>
+        <tr class="break"><td>Ковальська Марія Геннадіївна — мати</td><td class="yr">2019</td><td class="yr">2021</td><td>три роки в складі сім'ї, потім зникає — і саме вона власниця квартири 79 м², якою родина користувалася до 2023 року</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <b>Порожній розділ сім'ї в усіх п'яти кандидатських.</b> У деклараціях кандидата за 2018, 2019, 2021, 2023 і 2025 роки розділ членів сім'ї не заповнено взагалі — жодного запису, тоді як у щорічних за ті самі роки сім'я вказана повністю. Саме по собі це не обов'язково порушення, але як послідовність у п'яти документах поспіль — помітна закономірність.
+  </div>
+
+  <div class="note">
+    <b>Прогалина в поданні.</b> За 2021 рік у Реєстрі дві щорічні декларації, і обидві подано із запізненням майже на два роки — 21.12.2023 і 09.01.2024. Декларацію за 2022 рік подано 14.01.2024, теж із простроченням. Це видно з дат подання і варте окремої перевірки; причини з декларацій не встановити.
+  </div>
+</section>
+
+<section id="mustetsa">
+  <h2><span class="n">03</span>Траєкторії поруч: Ковальський і Мустеца</h2>
+  <div class="body">
+    <p class="lede">До 2020 року вони рухалися на різних рівнях: Мустеца вже був другою особою в обласній прокуратурі, коли Ковальський очолював відділ. У 2020-му обидва піднімаються одночасно.</p>
+    <p>Кожен рядок веде на конкретну декларацію в Реєстрі, з якої взято посаду.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>Рік</th>
+        <th>Ковальський А. А.</th><th>Док.</th>
+        <th>Мустеца І. В.</th><th>Док.</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="yr">2015</td>
+            <td>Начальник відділу нагляду, Вінницька</td><td><a href="https://public.nazk.gov.ua/documents/5c15b052-fca9-4a8a-ae76-b3feae3c7e74">5c15b052</a></td>
+            <td>Заступник прокурора Чернівецької області</td><td><a href="https://public.nazk.gov.ua/documents/68d6165e-8ce2-49be-87f8-6f8d5a66d367">68d6165e</a></td></tr>
+        <tr><td class="yr">2016</td>
+            <td>Начальник відділу нагляду, Вінницька</td><td><a href="https://public.nazk.gov.ua/documents/241862d9-555e-48fe-b657-b663ed1189ac">241862d9</a></td>
+            <td>Перший заступник прокурора області</td><td><a href="https://public.nazk.gov.ua/documents/ece62d15-daaa-41cc-ac78-75c1ba62d28d">ece62d15</a></td></tr>
+        <tr><td class="yr">2017</td>
+            <td>Начальник управління нагляду у кримінальному провадженні</td><td><a href="https://public.nazk.gov.ua/documents/6ad8e40a-e1ce-4946-97bf-82a559abd68b">6ad8e40a</a></td>
+            <td>Перший заступник прокурора області</td><td><a href="https://public.nazk.gov.ua/documents/ab6ebe4c-970e-42d0-b7b1-f02c086ea869">ab6ebe4c</a></td></tr>
+        <tr><td class="yr">2018</td>
+            <td>Начальник управління нагляду</td><td><a href="https://public.nazk.gov.ua/documents/a68e53f6-64bf-4fad-8170-6ffa44d6c10f">a68e53f6</a></td>
+            <td>Перший заступник прокурора області</td><td><a href="https://public.nazk.gov.ua/documents/d594f011-a63b-4b57-8396-0e9a00815e00">d594f011</a></td></tr>
+        <tr><td class="yr">2019</td>
+            <td>Начальник управління нагляду</td><td><a href="https://public.nazk.gov.ua/documents/13aa5dff-5fdd-476e-ae97-5b56c8b5bd4e">13aa5dff</a></td>
+            <td>Перший заступник прокурора області — остання чернівецька</td><td><a href="https://public.nazk.gov.ua/documents/3254deb3-4710-4de2-a71f-7f8d60404d85">3254deb3</a></td></tr>
+        <tr class="break"><td class="yr">2020</td>
+            <td><b>Заступник керівника Вінницької обласної прокуратури</b> — перше відповідальне становище</td><td><a href="https://public.nazk.gov.ua/documents/cc3f76dd-4ddd-47b0-9cb9-2630e104b7a0">cc3f76dd</a></td>
+            <td><b>Заступник Генерального прокурора</b> — перша в ОГП</td><td><a href="https://public.nazk.gov.ua/documents/3016c3c7-1613-46d8-9f23-970759258ffd">3016c3c7</a></td></tr>
+        <tr class="break"><td class="yr">2021</td>
+            <td><b>Керівник Чернівецької обласної прокуратури</b> — області, де Мустеца пропрацював п'ять років</td><td><a href="https://public.nazk.gov.ua/documents/94fe4f59-20ac-4f4e-8e91-a9d3f74cba30">94fe4f59</a></td>
+            <td>Заступник Генерального прокурора</td><td><a href="https://public.nazk.gov.ua/documents/23e13a78-c2e2-4249-9503-4d94511149ca">23e13a78</a></td></tr>
+        <tr><td class="yr">2022</td>
+            <td>Керівник Чернівецької обласної прокуратури</td><td><a href="https://public.nazk.gov.ua/documents/52faaefd-7c91-4869-bba3-8ed9633d016b">52faaefd</a></td>
+            <td>Заступник Генерального прокурора</td><td><a href="https://public.nazk.gov.ua/documents/4bb16d1c-82db-45ca-9092-6a5159ee1a98">4bb16d1c</a></td></tr>
+        <tr><td class="yr">2023</td>
+            <td>Керівник Чернівецької обласної прокуратури</td><td><a href="https://public.nazk.gov.ua/documents/bfec21eb-0f10-4b91-ab88-844914e8b32e">bfec21eb</a></td>
+            <td>Заступник Генерального прокурора</td><td><a href="https://public.nazk.gov.ua/documents/36dfcdfd-0a4d-421d-b430-4f984700f22c">36dfcdfd</a></td></tr>
+        <tr><td class="yr">2024</td>
+            <td>Керівник Чернівецької обласної прокуратури</td><td><a href="https://public.nazk.gov.ua/documents/4f912ebb-2f4c-4fce-95a0-9d9e1da4dab4">4f912ebb</a></td>
+            <td>Заступник Генерального прокурора</td><td><a href="https://public.nazk.gov.ua/documents/123117a9-3982-4ac5-b4af-b328fcb0dffd">123117a9</a></td></tr>
+        <tr class="break"><td class="yr">2025</td>
+            <td><b>Керівник Хмельницької обласної прокуратури</b> — кандидатська 02.07.2025</td><td><a href="https://public.nazk.gov.ua/documents/77abca96-ffa2-4206-bdb2-bb09bff43474">77abca96</a></td>
+            <td><b>Звільнення з ОГП</b> — декларація при звільненні 02.10.2025</td><td><a href="https://public.nazk.gov.ua/documents/92300404-c1fa-4c46-a05b-c906c1cd4c7d">92300404</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <b>Три збіги, які дають документи.</b> 2020-й — єдина точка, де обидві лінії міняють рівень одночасно. Через рік Ковальський очолює саме ту обласну прокуратуру, де Мустеца був першим заступником прокурора до 2019 року; спільно вони там не працювали. А кандидатську на Хмельницьку Ковальський подає за три місяці до того, як Мустеца подає декларацію при звільненні з ОГП. Хронологія точна — але хронологія не є доказом причинності: мережевий пошук на сім кіл спільних осіб між ними не знайшов, і це зібрано в окремому аналізі.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>Доходи</h2>
+  <div class="body">
+    <p>Сім років поспіль, з 2015 по 2022, родина жила майже виключно на його зарплату. У 2023-му структура доходу змінюється стрибком: у дружини з'являється підприємницький дохід, який одразу перевищує його річну зарплату втричі.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>Рік</th><th class="num">Зарплата А. К.</th><th class="num">ФОП дружини</th>
+        <th class="num">Інші доходи</th><th class="num">Разом, ₴</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="yr">2015</td><td class="num">92 184</td><td class="num">—</td><td class="num">29 344</td><td class="num">121 528</td></tr>
+        <tr><td class="yr">2016</td><td class="num">193 524</td><td class="num">—</td><td class="num">216 889</td><td class="num">410 413</td></tr>
+        <tr><td class="yr">2017</td><td class="num">387 705</td><td class="num">—</td><td class="num">201 403</td><td class="num">589 108</td></tr>
+        <tr><td class="yr">2018</td><td class="num">480 380</td><td class="num">—</td><td class="num">48 878</td><td class="num">529 258</td></tr>
+        <tr><td class="yr">2019</td><td class="num">451 703</td><td class="num">—</td><td class="num">939 825</td><td class="num">1 391 528</td></tr>
+        <tr><td class="yr">2020</td><td class="num">636 760</td><td class="num">—</td><td class="num">83 085</td><td class="num">719 845</td></tr>
+        <tr><td class="yr">2021</td><td class="num">1 074 052</td><td class="num">—</td><td class="num">187 975</td><td class="num">1 262 027</td></tr>
+        <tr><td class="yr">2022</td><td class="num">1 456 708</td><td class="num">—</td><td class="num">2 500</td><td class="num">1 459 208</td></tr>
+        <tr class="break"><td class="yr">2023</td><td class="num">1 590 808</td><td class="num">5 238 021</td><td class="num">2 726</td><td class="num">6 831 555</td></tr>
+        <tr><td class="yr">2024</td><td class="num">1 770 647</td><td class="num">4 040 994</td><td class="num">12 368</td><td class="num">5 824 009</td></tr>
+        <tr><td class="yr">2025</td><td class="num">2 501 620</td><td class="num">3 552 364</td><td class="num">73 075</td><td class="num">6 127 059</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Чим займається ФОП</h3>
+  <div class="body">
+    <p>Декларація за 2025 рік називає вид діяльності прямо: дружина орендує два приміщення <b>для роздрібної торгівлі спортивним харчуванням</b> — 19 м² у ТОВ «Торгово-виробнича компанія Петроцентр» (ЄДРПОУ 13341004) та 9 м² у ТОВ «БМУ-3» (ЄДРПОУ 02772391). Тобто бізнес реальний і має фізичні точки продажу.</p>
+    <p>Що не пояснено деклараціями — звідки взявся стартовий капітал. У 2022 році, останньому перед появою ФОП, сукупні гроші родини становили 1,42 млн ₴, а власний дохід дружини за той рік — 2 500 ₴ страхової виплати.</p>
+  </div>
+
+  <h3>Разові надходження, варті уваги</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Рік</th><th>Що</th><th class="num">Сума, ₴</th><th>Від кого</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">2019</td><td>Дохід від відчуження нерухомого майна</td><td class="num">877 500</td><td>М. Т. М.</td></tr>
+        <tr><td class="yr">2021</td><td>Додаткове благо</td><td class="num">57 600</td><td>Чернівецька обласна прокуратура</td></tr>
+        <tr><td class="yr">2025</td><td>Додаткове благо, кешбек, бонуси</td><td class="num">72 000</td><td>Хмельницька обласна прокуратура</td></tr>
+        <tr><td class="yr">2025</td><td>Вартість орденів, медалей, знаків</td><td class="num">1 075</td><td>Чернівецькі ОДА та обласна рада</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>Зарплата на тлі колег</h2>
+  <div class="body">
+    <p>Це той зріз, якого не видно в самій декларації: його річна зарплата проти всіх працівників системи прокуратури, які того ж року задекларували дохід. База — 1,49 млн декларацій, від 6 тис. до 11 тис. прокурорів у порівнянні щороку.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr>
+        <th>Рік</th><th class="num">Його зарплата</th><th class="num">Медіана прокуратури</th>
+        <th class="num">Перевищення</th><th class="num">Персентиль</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="yr">2015</td><td class="num">92 184</td><td class="num">111 592</td><td class="num">×0,83</td><td class="num">22,5</td></tr>
+        <tr><td class="yr">2017</td><td class="num">387 705</td><td class="num">292 844</td><td class="num">×1,32</td><td class="num">74,1</td></tr>
+        <tr><td class="yr">2020</td><td class="num">636 760</td><td class="num">438 074</td><td class="num">×1,45</td><td class="num">84,8</td></tr>
+        <tr><td class="yr">2021</td><td class="num">1 074 052</td><td class="num">591 283</td><td class="num">×1,82</td><td class="num">95,7</td></tr>
+        <tr><td class="yr">2022</td><td class="num">1 456 708</td><td class="num">807 322</td><td class="num">×1,80</td><td class="num">98,9</td></tr>
+        <tr class="break"><td class="yr">2024</td><td class="num">1 770 647</td><td class="num">903 703</td><td class="num">×1,96</td><td class="num">99,7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    У 2024 році лише троє з тисячі прокурорів задекларували більшу зарплату. Але це очікувано для керівника обласної прокуратури: серед 53 таких керівників того року медіана становила 1 579 155 ₴, а максимум — 1 965 504 ₴. Тобто в межах своєї посадової групи він трохи вище середини, а не аномалія.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">06</span>Майно</h2>
+  <div class="body">
+    <p class="lede">Жодного об'єкта нерухомості у власності родини від 2019 року й донині.</p>
+    <p>Схема стабільна: сім'я з двома дітьми послідовно живе у квартирах, оформлених на інших людей. За сім років — чотири різні адреси й чотири різні власники.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Об'єкт</th><th>Право</th><th>Власник</th><th>Роки</th></tr></thead>
+      <tbody>
+        <tr><td>Квартира 45,8 м², Вінниця</td><td>власність</td><td>сам декларант — продано 2019</td><td class="yr">2015–2019</td></tr>
+        <tr><td>Квартира 79 м²</td><td>користування</td><td>Ковальська Марія Геннадіївна, мати</td><td class="yr">2019–2023</td></tr>
+        <tr><td>Квартира 68 м²</td><td>оренда</td><td>В. О. М.</td><td class="yr">2022–2023</td></tr>
+        <tr class="break"><td>Квартира 92 м², Чернівці</td><td>оренда</td><td>Житар Олександр Петрович</td><td class="yr">2023–2025</td></tr>
+        <tr><td>Квартира 53,8 м²</td><td>користування</td><td>Чернівецька міська рада</td><td class="yr">з 27.01.2025</td></tr>
+        <tr><td>Квартира 135,3 м²</td><td>оренда</td><td>Ю. Ю. М.</td><td class="yr">з 04.07.2025</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <b>Службове житло від міськради.</b> З 27 січня 2025 року декларант користується квартирою 53,8 м², що належить Чернівецькій міській раді (ЄДРПОУ 36068147) — у період, коли він очолював обласну прокуратуру цієї ж області. Надання житла посадовцю органом, чию діяльність прокуратура наглядає, — стандартна практика для прокурорів, але водночас і стандартна точка перевірки на конфлікт інтересів.
+  </div>
+
+  <h3>Транспорт</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Авто</th><th>Рік випуску</th><th class="num">Вартість, ₴</th><th>Власник</th><th>Роки</th></tr></thead>
+      <tbody>
+        <tr><td>Volkswagen Polo 1.6</td><td class="num">2011</td><td class="num">—</td><td>Ковальський Геннадій Анатолійович</td><td class="yr">2015–2022</td></tr>
+        <tr><td>Nissan Qashqai</td><td class="num">2019</td><td class="num">704 360</td><td>дружина</td><td class="yr">з 25.05.2019</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="body">
+    <p style="margin-top:14px">Одне авто на родину за весь період спостереження. Polo, яким декларант користувався вісім років, належав <b>Ковальському Геннадію Анатолійовичу</b> — збіг прізвища й по батькові вказує на близького родича, найімовірніше брата, але в жодній декларації він не названий членом сім'ї, тому спорідненість документально не підтверджена.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">07</span>Гроші</h2>
+  <div class="body">
+    <p>Сукупні кошти родини зросли за одинадцять років у 6,9 раза. Пропорція між готівкою і рахунками помітно змінилася: якщо у 2017–2018 роках майже все зберігалося готівкою, то у 2025-му на рахунках уже 42%.</p>
+  </div>
+  <div class="legend">
+    <span><i style="background:var(--c-cash)"></i>Готівка</span>
+    <span><i style="background:var(--c-bank)"></i>Кошти на банківських рахунках</span>
+  </div>
+  <figure class="chart" style="margin:0">
+    <svg viewBox="0 0 860 320" width="100%" role="img" aria-label="Зростання грошових активів родини Ковальського, 2015-2025" style="max-width:100%;height:auto;font-family:var(--mono)">
+<line x1="62" y1="274.0" x2="842" y2="274.0" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="53" y="278.0" text-anchor="end" font-size="11" fill="var(--muted)">0</text>
+<line x1="62" y1="203.1" x2="842" y2="203.1" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="53" y="207.1" text-anchor="end" font-size="11" fill="var(--muted)">1 млн</text>
+<line x1="62" y1="132.3" x2="842" y2="132.3" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="53" y="136.3" text-anchor="end" font-size="11" fill="var(--muted)">2 млн</text>
+<line x1="62" y1="61.4" x2="842" y2="61.4" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="53" y="65.4" text-anchor="end" font-size="11" fill="var(--muted)">3 млн</text>
+<g class="bar" data-y="2015" data-c="291000" data-b="174168" data-t="465168">
+<rect x="78.5" y="253.4" width="38" height="20.6" fill="var(--c-cash)" rx="0"/>
+<rect x="78.5" y="241.0" width="38" height="10.3" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="78.5" y="246.4" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="62.0" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="97.5" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2015</text>
+<g class="bar" data-y="2016" data-c="339875" data-b="206644" data-t="546519">
+<rect x="149.4" y="249.9" width="38" height="24.1" fill="var(--c-cash)" rx="0"/>
+<rect x="149.4" y="235.3" width="38" height="12.6" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="149.4" y="242.9" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="132.9" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="168.4" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2016</text>
+<g class="bar" data-y="2017" data-c="742014" data-b="0" data-t="742014">
+<rect x="220.3" y="221.4" width="38" height="52.6" fill="var(--c-cash)" rx="0"/>
+<rect class="hit" x="203.8" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="239.3" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2017</text>
+<g class="bar" data-y="2018" data-c="904338" data-b="6810" data-t="911148">
+<rect x="291.2" y="209.9" width="38" height="64.1" fill="var(--c-cash)" rx="0"/>
+<rect class="hit" x="274.7" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="310.2" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2018</text>
+<g class="bar" data-y="2019" data-c="550000" data-b="44004" data-t="594004">
+<rect x="362.1" y="235.0" width="38" height="39.0" fill="var(--c-cash)" rx="0"/>
+<rect x="362.1" y="231.9" width="38" height="1.1" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="362.1" y="228.0" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="345.6" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="381.1" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2019</text>
+<g class="bar" data-y="2020" data-c="575000" data-b="53034" data-t="628034">
+<rect x="433.0" y="233.3" width="38" height="40.7" fill="var(--c-cash)" rx="0"/>
+<rect x="433.0" y="229.5" width="38" height="1.8" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="433.0" y="226.3" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="416.5" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="452.0" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2020</text>
+<g class="bar" data-y="2021" data-c="820000" data-b="63653" data-t="883653">
+<rect x="503.9" y="215.9" width="38" height="58.1" fill="var(--c-cash)" rx="0"/>
+<rect x="503.9" y="211.4" width="38" height="2.5" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="503.9" y="208.9" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="487.5" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="522.9" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2021</text>
+<g class="bar" data-y="2022" data-c="1123140" data-b="295630" data-t="1418770">
+<rect x="574.8" y="194.4" width="38" height="79.6" fill="var(--c-cash)" rx="0"/>
+<rect x="574.8" y="173.5" width="38" height="18.9" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="574.8" y="187.4" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="558.4" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="593.8" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2022</text>
+<g class="bar" data-y="2023" data-c="1340000" data-b="509608" data-t="1849608">
+<rect x="645.7" y="179.1" width="38" height="94.9" fill="var(--c-cash)" rx="0"/>
+<rect x="645.7" y="142.9" width="38" height="34.1" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="645.7" y="172.1" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="629.3" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="664.7" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2023</text>
+<g class="bar" data-y="2024" data-c="1620000" data-b="773355" data-t="2393355">
+<rect x="716.6" y="159.2" width="38" height="114.8" fill="var(--c-cash)" rx="0"/>
+<rect x="716.6" y="104.4" width="38" height="52.8" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="716.6" y="152.2" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="700.2" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="735.6" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2024</text>
+<g class="bar" data-y="2025" data-c="1850000" data-b="1358581" data-t="3208581">
+<rect x="787.5" y="142.9" width="38" height="131.1" fill="var(--c-cash)" rx="0"/>
+<rect x="787.5" y="46.6" width="38" height="94.3" fill="var(--c-bank)" rx="4" ry="4"/>
+<rect x="787.5" y="135.9" width="38" height="5" fill="var(--c-bank)"/>
+<rect class="hit" x="771.1" y="26" width="70.9" height="248" fill="transparent"/>
+</g>
+<text x="806.5" y="292" text-anchor="middle" font-size="11" fill="var(--muted)">2025</text>
+<text x="97.5" y="232.0" text-anchor="middle" font-size="11.5" font-weight="500" fill="var(--ink)">465 168</text>
+<text x="381.1" y="222.9" text-anchor="middle" font-size="11.5" font-weight="500" fill="var(--ink)">594 004</text>
+<text x="593.8" y="164.5" text-anchor="middle" font-size="11.5" font-weight="500" fill="var(--ink)">1 418 770</text>
+<text x="806.5" y="37.6" text-anchor="middle" font-size="11.5" font-weight="500" fill="var(--ink)">3 208 581</text>
+<line x1="62" y1="274" x2="842" y2="274" stroke="var(--ink-2)" stroke-width="1" fill="none"/>
+</svg>
+    <div class="tip" id="tip" hidden></div>
+  </figure>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:8px">Гривневий еквівалент за курсом НБУ на 31 грудня кожного року. Наведіть курсор на стовпчик, щоб побачити точні суми.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Рік</th><th class="num">Готівка</th><th class="num">Рахунки</th><th class="num">Разом, ₴ екв.</th><th class="num">Частка готівки</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">2015</td><td class="num">291 000</td><td class="num">174 168</td><td class="num">465 168</td><td class="num">63%</td></tr>
+        <tr><td class="yr">2016</td><td class="num">339 875</td><td class="num">206 644</td><td class="num">546 519</td><td class="num">62%</td></tr>
+        <tr><td class="yr">2017</td><td class="num">742 014</td><td class="num">0</td><td class="num">742 014</td><td class="num">100%</td></tr>
+        <tr><td class="yr">2018</td><td class="num">904 338</td><td class="num">6 810</td><td class="num">911 148</td><td class="num">99%</td></tr>
+        <tr class="break"><td class="yr">2019</td><td class="num">550 000</td><td class="num">44 004</td><td class="num">594 004</td><td class="num">93%</td></tr>
+        <tr><td class="yr">2020</td><td class="num">575 000</td><td class="num">53 034</td><td class="num">628 034</td><td class="num">92%</td></tr>
+        <tr><td class="yr">2021</td><td class="num">820 000</td><td class="num">63 653</td><td class="num">883 653</td><td class="num">93%</td></tr>
+        <tr class="break"><td class="yr">2022</td><td class="num">1 123 140</td><td class="num">295 630</td><td class="num">1 418 770</td><td class="num">79%</td></tr>
+        <tr><td class="yr">2023</td><td class="num">1 340 000</td><td class="num">509 608</td><td class="num">1 849 608</td><td class="num">72%</td></tr>
+        <tr><td class="yr">2024</td><td class="num">1 620 000</td><td class="num">773 355</td><td class="num">2 393 355</td><td class="num">68%</td></tr>
+        <tr class="break"><td class="yr">2025</td><td class="num">1 850 000</td><td class="num">1 358 581</td><td class="num">3 208 581</td><td class="num">58%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <b>Канадський рахунок.</b> У декларації за 2022 рік у дружини зазначено 6 000 CAD у <b>BMO Bank of Montreal</b>, адреса 15000 Royal York Rd, Weston, Ontario. Сам рахунок фігурує у переліку відкритих рахунків за 2022, 2023 і 2024 роки, але залишок показано лише за 2022-й. У декларації за 2025 рік банку немає взагалі.
+  </div>
+  <h3>Дохід проти приросту активів</h3>
+  <div class="body">
+    <p>Це основна перевірка на незабезпечений статок: скільки людина задекларувала доходу за рік і наскільки за той самий рік зросли її гроші. Якщо приріст перевищує дохід — відкласти більше, ніж заробив, неможливо, і різницю треба пояснювати. Нижче обидві величини в одному масштабі, тож видно не лише знак, а й пропорцію.</p>
+  </div>
+  <div class="legend">
+    <span><i style="background:var(--c-inc)"></i>Задекларований дохід за рік</span>
+    <span><i style="background:var(--c-ass)"></i>Приріст грошових активів</span>
+    <span><i style="background:var(--c-neg)"></i>Зменшення активів</span>
+  </div>
+  <figure class="chart" style="margin:0">
+    <svg viewBox="0 0 860 360" width="100%" role="img" aria-label="Задекларований дохід проти приросту грошових активів, 2016-2025" style="max-width:100%;height:auto;font-family:var(--mono)">
+<line x1="66" y1="294.8" x2="842" y2="294.8" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="57" y="298.8" text-anchor="end" font-size="11" fill="var(--muted)">0</text>
+<line x1="66" y1="218.0" x2="842" y2="218.0" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="57" y="222.0" text-anchor="end" font-size="11" fill="var(--muted)">2 млн</text>
+<line x1="66" y1="141.2" x2="842" y2="141.2" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="57" y="145.2" text-anchor="end" font-size="11" fill="var(--muted)">4 млн</text>
+<line x1="66" y1="64.4" x2="842" y2="64.4" stroke="var(--hair)" stroke-width="1" fill="none"/>
+<text x="57" y="68.4" text-anchor="end" font-size="11" fill="var(--muted)">6 млн</text>
+<g class="bar2" data-y="2016" data-i="410413" data-d="81351" data-r="19.8">
+<rect x="77.8" y="279.0" width="25" height="15.8" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="77.8" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="106.8" y="291.7" width="25" height="3.1" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="106.8" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="66.0" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="104.8" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2016</text>
+<g class="bar2" data-y="2017" data-i="589108" data-d="195495" data-r="33.2">
+<rect x="155.4" y="272.2" width="25" height="22.6" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="155.4" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="184.4" y="287.3" width="25" height="7.5" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="184.4" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="143.6" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="182.4" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2017</text>
+<g class="bar2" data-y="2018" data-i="529258" data-d="169134" data-r="32.0">
+<rect x="233.0" y="274.5" width="25" height="20.3" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="233.0" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="262.0" y="288.3" width="25" height="6.5" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="262.0" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="221.2" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="260.0" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2018</text>
+<g class="bar2" data-y="2019" data-i="1391528" data-d="-317144" data-r="-22.8">
+<rect x="310.6" y="241.4" width="25" height="53.4" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="310.6" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="339.6" y="294.8" width="25" height="12.2" fill="var(--c-neg)" rx="4" ry="4"/>
+<rect x="339.6" y="294.8" width="25" height="5" fill="var(--c-neg)"/>
+<rect class="hit" x="298.8" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="337.6" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2019</text>
+<g class="bar2" data-y="2020" data-i="719845" data-d="34030" data-r="4.7">
+<rect x="388.2" y="267.2" width="25" height="27.6" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="388.2" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="417.2" y="293.5" width="25" height="1.3" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="417.2" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="376.4" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="415.2" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2020</text>
+<g class="bar2" data-y="2021" data-i="1262027" data-d="255619" data-r="20.3">
+<rect x="465.8" y="246.3" width="25" height="48.5" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="465.8" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="494.8" y="285.0" width="25" height="9.8" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="494.8" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="454.0" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="492.8" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2021</text>
+<g class="bar2" data-y="2022" data-i="1459208" data-d="535117" data-r="36.7">
+<rect x="543.4" y="238.8" width="25" height="56.0" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="543.4" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="572.4" y="274.3" width="25" height="20.5" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="572.4" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="531.6" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="570.4" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2022</text>
+<g class="bar2" data-y="2023" data-i="6831555" data-d="430838" data-r="6.3">
+<rect x="621.0" y="32.5" width="25" height="262.3" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="621.0" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="650.0" y="278.3" width="25" height="16.5" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="650.0" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="609.2" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="648.0" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2023</text>
+<g class="bar2" data-y="2024" data-i="5824009" data-d="543747" data-r="9.3">
+<rect x="698.6" y="71.2" width="25" height="223.6" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="698.6" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="727.6" y="273.9" width="25" height="20.9" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="727.6" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="686.8" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="725.6" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2024</text>
+<g class="bar2" data-y="2025" data-i="6127059" data-d="815226" data-r="13.3">
+<rect x="776.2" y="59.5" width="25" height="235.3" fill="var(--c-inc)" rx="4" ry="4"/>
+<rect x="776.2" y="289.8" width="25" height="5" fill="var(--c-inc)"/>
+<rect x="805.2" y="263.5" width="25" height="31.3" fill="var(--c-ass)" rx="4" ry="4"/>
+<rect x="805.2" y="289.8" width="25" height="5" fill="var(--c-ass)"/>
+<rect class="hit" x="764.4" y="26" width="77.6" height="288" fill="transparent"/>
+</g>
+<text x="803.2" y="332" text-anchor="middle" font-size="11" fill="var(--muted)">2025</text>
+<line x1="66" y1="294.8" x2="842" y2="294.8" stroke="var(--ink-2)" stroke-width="1" fill="none"/>
+<text x="323.1" y="233.4" text-anchor="middle" font-size="11" font-weight="500" fill="var(--ink)">1 391 528</text>
+<text x="633.5" y="24.5" text-anchor="middle" font-size="11" font-weight="500" fill="var(--ink)">6 831 555</text>
+<text x="788.7" y="51.5" text-anchor="middle" font-size="11" font-weight="500" fill="var(--ink)">6 127 059</text>
+<text x="354.1" y="322.0" text-anchor="middle" font-size="11" font-weight="500" fill="var(--crit)">−317 144</text>
+</svg>
+    <div class="tip" id="tip2" hidden></div>
+  </figure>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:8px">Дохід — сума всіх рядків розділу 11 декларації, включно з доходами дружини. Приріст активів — різниця готівки й рахунків проти попереднього року.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Рік</th><th class="num">Дохід</th><th class="num">Приріст активів</th><th class="num">Осіло в активах</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">2016</td><td class="num">410 413</td><td class="num">81 351</td><td class="num">19.8%</td></tr>
+        <tr><td class="yr">2017</td><td class="num">589 108</td><td class="num">195 495</td><td class="num">33.2%</td></tr>
+        <tr><td class="yr">2018</td><td class="num">529 258</td><td class="num">169 134</td><td class="num">32.0%</td></tr>
+        <tr class="break"><td class="yr">2019</td><td class="num">1 391 528</td><td class="num" style="color:var(--crit)">−317 144</td><td class="num" style="color:var(--crit)">-22.8%</td></tr>
+        <tr><td class="yr">2020</td><td class="num">719 845</td><td class="num">34 030</td><td class="num">4.7%</td></tr>
+        <tr><td class="yr">2021</td><td class="num">1 262 027</td><td class="num">255 619</td><td class="num">20.3%</td></tr>
+        <tr><td class="yr">2022</td><td class="num">1 459 208</td><td class="num">535 117</td><td class="num">36.7%</td></tr>
+        <tr class="break"><td class="yr">2023</td><td class="num">6 831 555</td><td class="num">430 838</td><td class="num">6.3%</td></tr>
+        <tr><td class="yr">2024</td><td class="num">5 824 009</td><td class="num">543 747</td><td class="num">9.3%</td></tr>
+        <tr><td class="yr">2025</td><td class="num">6 127 059</td><td class="num">815 226</td><td class="num">13.3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note ok">
+    <b>Базовий тест пройдено в кожному році без винятку.</b> Приріст грошей жодного разу не перевищив задекларований дохід — навіть близько. Найвища норма заощадження — 36,7 % у 2022 році, що для родини з двома дітьми високо, але цілком можливо. Отже видимих стрибків статку, не забезпечених задекларованим доходом, тут немає.
+  </div>
+
+  <div class="note">
+    <b>2019 рік: активи впали на 317 144 ₴ при доході 1,39 млн.</b> Єдиний від'ємний рік, і декларація пояснює його сама. Того року він продав вінницьку квартиру за 877 500 ₴, а 25 травня в дружини з'являється <b>Nissan Qashqai за 704 360 ₴</b>. Гроші перетекли з готівки в авто, яке в цьому графіку не рахується: тут лише готівка й рахунки. Плюс дохід того року роздутий разовим продажем і не є регулярним заробітком.
+  </div>
+
+  <div class="note crit">
+    <b>2023–2025: розрив у 17 мільйонів.</b> За три роки задекларовано <b>18,78 млн ₴</b> доходу, а грошові активи зросли лише на <b>1,79 млн</b>. Норма заощадження падає до 6,3 %, 9,3 % і 13,3 % — тоді як до появи ФОП вона трималася на 20–37 %. Близько <b>17 млн ₴ не осіли в задекларованих активах</b> і не перетворилися на майно: нерухомості родина не купувала, авто лишилося те саме з 2019 року.
+  </div>
+
+  <div class="note">
+    <p><b>Найімовірніше пояснення знімає більшу частину питання — але не все.</b> У декларації ФОП показує <b>виручку, а не прибуток</b>. Це не припущення, а пряма вимога регулятора: «сума доходу від підприємницької діяльності за звітний період сумується і в декларації вказується <b>загальна сума валового доходу</b>, отримана суб’єктом декларування або членом його сім’ї як ФОП у звітному періоді» (<a href="https://wiki.nazk.gov.ua/category/deklaruvannya/hhi-osoblyvosti-deklaruvannya-v-okremyh-sytuatsiyah/#post4715">Роз’яснення НАЗК щодо застосування Закону «Про запобігання корупції», п. 204</a>, чинна редакція від 26.12.2024; те саме формулювання діяло й у попередніх редакціях). Вирахування витрат правила не передбачають, а форма декларації не має окремого поля для чистого доходу.</p>
+    <p style="margin-top:11px">У дружини роздрібна торгівля спортивним харчуванням із двома орендованими точками, тож із 5,24 млн обороту йдуть закупівля товару, оренда, зарплати й податки. Родина цих грошей ніколи не тримала — і тоді 17-мільйонний розрив не аномалія, а різниця між оборотом і прибутком.</p>
+    <p style="margin-top:11px">Перевіряється це просто: якби 5,24 млн були чистим прибутком, родина витрачала б близько 5 млн ₴ на рік при незмінному авто й орендованому житлі. Це неправдоподібно. Тобто читання «виручка» майже напевно правильне — але саму суму прибутку можна взяти лише з податкової звітності ФОП, не з декларації.</p>
+    <p style="margin-top:11px;font-size:13.5px;color:var(--muted)"><b>Застереження до цього читання.</b> Роз’яснення НАЗК не є нормативно-правовим актом, а сам закон (п. 7 ч. 1 ст. 46 Закону «Про запобігання корупції») говорить лише про «отримані доходи», не уточнюючи, валові чи чисті. Тому ФОП на загальній системі інколи вписує чистий оподатковуваний дохід із додатка Ф2 — і з самої декларації відрізнити одне від одного неможливо. Для ФОП на єдиному податку розбіжності немає взагалі: Податковий кодекс (ст. 292) і так визначає його дохід як усю виручку без вирахування витрат.</p>
+  </div>
+
+  <div class="note crit">
+    <b>Питання, яке цей графік НЕ закриває.</b> Тест порівнює приріст із доходом і тому нічого не каже про <b>походження стартового капіталу</b>. На кінець 2022 року всі гроші родини становили 1,42 млн ₴, власний дохід дружини за той рік — 2 500 ₴ страхової виплати. Роздрібна торгівля потребує товарного запасу, оренди й обладнання ще до першої виручки. Звідки взялися ці кошти, декларації не показують — і це лишається головним незакритим питанням, незалежно від того, наскільки чисто сходиться річний баланс.
+  </div>
+
+  <div class="note">
+    <b>Підсумок за десять років.</b> Сукупний задекларований дохід 2016–2025 — <b>25,1 млн ₴</b>, сукупний приріст грошей — <b>2,74 млн ₴</b>, тобто в активах осіло <b>10,9 %</b> усього задекларованого. Решта пішла на життя, авто й обіг бізнесу.
+  </div>
+
+</section>
+
+<section>
+  <h2><span class="n">08</span>Пов'язані особи</h2>
+  <div class="body">
+    <p>Нижче — усі фізичні особи, названі в 19 деклараціях, отримані рекурсивним обходом усіх розділів кожного документа.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Особа</th><th>Роль за декларацією</th><th>Роки</th><th>Держслужба</th></tr></thead>
+      <tbody>
+        <tr><td>Ковальська Оксана Іванівна</td><td>дружина; ФОП зі спортхарчування</td><td class="yr">2015–2025</td><td>не знайдено</td></tr>
+        <tr><td>Син (ім'я не наводимо)</td><td>син</td><td class="yr">2015–2025</td><td>не знайдено</td></tr>
+        <tr><td>Дочка (ім'я не наводимо)</td><td>дочка</td><td class="yr">2018–2025</td><td>не знайдено</td></tr>
+        <tr><td>Ковальська Марія Геннадіївна</td><td>мати; медсестра психоневрологічної лікарні, власниця квартири 79 м²</td><td class="yr">2018–2023</td><td>не знайдено</td></tr>
+        <tr><td>Ковальський Геннадій Анатолійович</td><td>власник авто, яким користувався декларант</td><td class="yr">2015–2022</td><td>не знайдено</td></tr>
+        <tr class="break"><td>Житар Олександр Петрович</td><td>власник орендованої квартири 92 м²</td><td class="yr">2023–2025</td><td><b>так — СБУ, оборонний експорт; кандидат у САП та ОГП</b></td></tr>
+        <tr><td>В. О. М.</td><td>власниця орендованої квартири 68 м²</td><td class="yr">2022–2023</td><td>колишня — ДФС</td></tr>
+        <tr><td>Ю. Ю. М.</td><td>власниця орендованої квартири 135,3 м²</td><td class="yr">2025</td><td>не знайдено</td></tr>
+        <tr><td>П. О. В.</td><td>названа в розділі нерухомості</td><td class="yr">2021–2022</td><td>не знайдено</td></tr>
+        <tr><td>М. Т. М.</td><td>покупчиня вінницької квартири</td><td class="yr">2019</td><td>не знайдено</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Житар Олександр Петрович — найвагоміший зв'язок</h3>
+  <div class="body">
+    <p>Людина, у якої родина керівника обласної прокуратури орендує житло з вересня 2023 року, має власну послідовність посад і заявок на посади в силовому й оборонному секторі. Половина цієї послідовності — <b>кандидатури</b>, а не обійняті посади, і нижче вони позначені окремо:</p>
+  </div>
+  <div class="track" style="margin-top:18px">
+    <div class="stop">
+      <div class="when">до 2016</div>
+      <div class="what">Слідчий УСБУ в Чернівецькій області</div>
+      <div class="where">Декларація після звільнення — саме звідси чернівецька прив'язка</div>
+    </div>
+    <div class="stop">
+      <div class="when">січень — лютий 2020</div>
+      <div class="what">Кандидат на посаду прокурора Офісу генпрокурора, потім — прокурора САП</div>
+      <div class="where">Дві заявки за три тижні: 23 січня в ОГП (виправлена 27 січня), 7 лютого — в САП. Обидві лишилися заявками</div>
+    </div>
+    <div class="stop">
+      <div class="when">травень 2020 — 2021</div>
+      <div class="what">Начальник відділу ДП «Укроборонсервіс»</div>
+      <div class="where">Дочірнє підприємство Державної компанії «Укрспецекспорт». Четверта й остання заявка того сезону — 24 травня 2020 року — єдина, яка спрацювала: саме з цієї посади подано щорічні декларації за 2020 і 2021 роки</div>
+    </div>
+    <div class="stop lead">
+      <div class="when">вересень 2026</div>
+      <div class="what">Кандидат на посаду члена комісії з перетворення ДК «Укрспецекспорт»</div>
+      <div class="where">Знову декларація кандидата, тобто заявка: подана 3 вересня 2026 року, виправлена 8-го, звітний період — 2025 рік. Що він працює в Укрспецекспорті, видно з доходу: 2 087 984 ₴ зарплати від цієї компанії за 2025 рік. Але чи обійняв він саме цю посаду в комісії — з відкритих джерел не підтверджується</div>
+    </div>
+  </div>
+  <div class="note crit">
+    <b>Кандидатська декларація — це заявка, а не посада.</b> Усі три «прокурорські» документи Житаря подані як <b>декларації кандидата на посаду</b>: вони доводять, що людина подалася на конкурс, і нічого не кажуть про призначення. Реєстр показує, що призначення не було: за 2019 і 2020 роки немає жодної щорічної декларації з прокуратури, немає декларації при звільненні з неї, а перша щорічна після 2016 року подана вже з ДП «Укроборонсервіс». Якби Житар справді обійняв посаду в ОГП чи САП, щонайменше один із цих документів мусив би існувати.
+  </div>
+
+  <div class="note">
+    <p><b>Чи став він членом комісії — відкриті дані поки не кажуть.</b> Той самий тест тут не працює <b>через строки</b>, а не через брак даних: кандидатська декларація подається <i>до</i> призначення, а підтвердила б його щорічна за 2026 рік, яку подають аж до <b>31 березня 2027</b>. Минуло два тижні від заявки — документа, який мав би з’явитися в разі призначення, ще не існує.</p>
+    <p style="margin-top:11px">Незалежну перевірку дає ЄДР. ДК «Укрспецекспорт» перебуває <b>в стані припинення з 27.02.2026</b> — рішення засновників про припинення через реорганізацію; станом на 20.09.2026 уповноваженими особами значаться <b>Первак Сергій Леонідович</b> (тимчасово виконуючий обов’язки генерального директора і голова комісії з припинення) та <b>Богданович Олександр Сергійович</b> (член комісії). Житара серед них немає.</p>
+    <p style="margin-top:11px">Це вагомо, але не остаточно: ЄДР обов’язково фіксує голову комісії, а членів — лише тих, кого подали на реєстрацію, тоді як повний склад затверджується наказом органу управління. Тому відсутність у ЄДР означає «не зареєстрований як член комісії», а не «не входить до неї». Закрити питання можна наказом про склад комісії — через запит на публічну інформацію.</p>
+  </div>
+
+  <div class="note">
+    <b>Прогалина 2022–2024.</b> У Реєстрі немає жодної декларації Житаря за 2022, 2023 і 2024 роки — при тому, що за 2021-й і за 2025-й вони є. Причину з відкритих даних не встановити: це може бути і зміна статусу посади, і вилучення документів з публічної частини на період воєнного стану. Ощадливіше пояснення підказує сама назва його теперішньої посади — «член комісії з <b>перетворення</b>»: держпідприємства оборонного експорту реорганізовують в акціонерні товариства, а зі зміною організаційної форми посада може перестати бути декларантською і згодом знову нею стати. Перевірити це з відкритих даних не вийшло. Саме на ці роки припадає початок оренди його квартири родиною Ковальського.
+  </div>
+  <div class="note">
+    <b>Свіжі виправлення.</b> Обидві декларації за 2025 рік — виправлені, подані 3 і 8 вересня 2026 року, тобто за два тижні до складання цього досьє. Первинної декларації за 2025 рік у Реєстрі немає.
+  </div>
+  <div class="note crit">
+    <b>Як підтверджено тотожність.</b> Це не збіг прізвищ. У деклараціях Житаря значиться квартира <b>92,3 м², набута 17.02.2020</b>; у деклараціях Ковальського — оренда квартири <b>92 м²</b> саме в «Житаря Олександра Петровича» з 04.09.2023. Збігаються повне ПІБ, площа з точністю до округлення і регіон. Сам Житар декларує чотири квартири (70,3 · 92,3 · 59,4 · 40,9 м²) і два паркомісця.
+  </div>
+  <div class="note crit">
+    <b>Оренда є в одного, доходу від оренди немає в іншого.</b> Ковальський декларує оренду цієї квартири з 04.09.2023 і тримає її в декларації за 2025 рік, уже працюючи в Хмельницькому. Житар за жодну з <b>11 своїх декларацій не задекларував доходу від надання майна в оренду</b> — жодного разу за десять років. За 2022–2024 претензії немає: декларацій за ці роки в нього просто немає, а отже не було й обов’язку їх подавати. Але 2025-й рік є в обох.
+  </div>
+
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Звітний рік 2025</th><th>Ковальський (подано 24.03.2026)</th><th>Житар (подано 08.09.2026)</th></tr></thead>
+      <tbody>
+        <tr><td>Квартира 92 м², Чернівці</td><td>оренда, чинна</td><td>власність від 17.02.2020</td></tr>
+        <tr class="break"><td>Дохід від надання майна в оренду</td><td>—</td><td><b>відсутній</b></td></tr>
+        <tr><td>Видатки та правочини (розділ 14)</td><td>порожній</td><td>—</td></tr>
+        <tr><td>Увесь задекларований дохід</td><td class="yr">6 127 059 ₴</td><td class="yr">2 099 983 ₴ — зарплата Укрспецекспорту 2 087 984, інше 6 999 і 5 000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>Три пояснення, і жодне не встановлюється з декларацій.</b> Безоплатне користування, яке Ковальський у випадному списку позначив як «оренду»; оренда з незадекларованим доходом; помилка заповнення в однієї зі сторін. Ціна оренди в декларації не зазначається взагалі, а факт оплати не відображається ніде: розділ 14 «Видатки та правочини» в декларації Ковальського за 2025 рік порожній, у доходах Житаря орендної позиції немає. Питання закривається Держреєстром речових прав і реєстрацією договору оренди, не деклараціями.
+  </div>
+
+  <h3>Який масштаб має така розбіжність за законом</h3>
+  <div class="body">
+    <p>Щоб знахідку вище не прочитали більшою, ніж вона є: відповідальність за недостовірні відомості в декларації ступінчаста й прив’язана до прожиткового мінімуму для працездатних осіб на 1 січня звітного року (2025 — 3 028 ₴).</p>
+  </div>
+
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Розбіжність із достовірними даними</th><th>У гривнях за 2025 рік</th><th>Відповідальність</th><th>Санкція</th></tr></thead>
+      <tbody>
+        <tr class="break"><td>до 150 ПМ</td><td class="yr">до 454 200 ₴</td><td>дисциплінарна</td><td>догана, звільнення тощо — статті немає</td></tr>
+        <tr><td>150 – 750 ПМ</td><td class="yr">454 200 – 2 271 000 ₴</td><td>адміністративна, ч. 4 ст. 172-6 КУпАП</td><td>штраф 1000–2500 НМДГ (17 000 – 42 500 ₴)</td></tr>
+        <tr><td>750 – 2500 ПМ</td><td class="yr">2 271 000 – 7 570 000 ₴</td><td><b>кримінальна</b>, ч. 1 ст. 366-2 КК</td><td>штраф 4000–6000 НМДГ, або громадські роботи, або обмеження волі до 2 років, із забороною обіймати посади до 3 років</td></tr>
+        <tr><td>понад 2500 ПМ</td><td class="yr">понад 7 570 000 ₴</td><td><b>кримінальна</b>, ч. 2 ст. 366-2 КК</td><td>те саме <b>плюс позбавлення волі до 2 років</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note ok">
+    <b>Для однієї квартири це не кримінальна стаття — і навіть не адміністративна.</b> Щоб приховане орендне надходження дотягло бодай до адміністративної межі за 2025 рік, оренда мала б давати <b>понад 37 850 ₴ на місяць</b>; щоб стати злочином — <b>понад 189 000 ₴ на місяць</b>. Оренда 92 м² у Чернівцях за будь-якої реалістичної ставки лишається в найнижчій смузі, де передбачені лише заходи дисциплінарного впливу. Обидві статті до того ж вимагають прямого умислу: «умисне внесення <i>завідомо</i> недостовірних відомостей».
+  </div>
+
+  <div class="note">
+    <b>Податкова шкала веде туди само.</b> Оренда житла фізособою оподатковується 18 % ПДФО плюс 5 % військового збору, разом 23 %, і якщо орендар — звичайна фізособа, то платить і звітує сам власник (пп. 170.1.5 ПКУ). Кримінальна ст. 212 КК настає лише від «значного розміру» несплаченого податку — 3000 НМДГ, де для кваліфікації НМДГ дорівнює половині прожиткового мінімуму, тобто <b>4 542 000 ₴ податку за 2025 рік</b>. Це відповідає приблизно 19,7 млн ₴ орендного доходу за рік. Нижче порогу працює не Кримінальний кодекс, а Податковий: донарахування, штраф 10–50 % за ст. 123 ПКУ і пеня.
+  </div>
+
+  <div class="note crit">
+    <b>Чому знахідка все одно важлива.</b> Її вага не в розмірі можливого штрафу, а в питанні, яке вона ставить: чи існує оплата взагалі. Якщо оренда оплачується — бракує доходу в декларації власника. Якщо не оплачується — то керівник обласної прокуратури три роки безоплатно користується житлом посадовця державної компанії оборонного експорту, і це вже питання не про податок.
+  </div>
+
+  <h3>Батько: генерал СБУ, якого немає в Реєстрі</h3>
+  <div class="body">
+    <p>Окремо перевірялася версія, що Олександр Житар — син генерала. Версія неофіційна, тож перевірка велася від зворотного: чи існують у Реєстрі декларації <b>Житара Петра Івановича</b>. Відповідь однозначна — не існує жодної.</p>
+  </div>
+
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Запит до Реєстру декларацій</th><th>Документів</th></tr></thead>
+      <tbody>
+        <tr><td>«Житар Петро Іванович»</td><td class="yr">0</td></tr>
+        <tr><td>«Житар Петро»</td><td class="yr">0</td></tr>
+        <tr><td>«Житарь Петро», «Жытар Петро» — варіанти написання</td><td class="yr">0</td></tr>
+        <tr class="break"><td>«Житар» — суцільний перебір усіх сторінок видачі</td><td class="yr">100 документів, жодного Петра Івановича</td></tr>
+        <tr><td><i>контроль:</i> «Ковальський Антон Анатолійович»</td><td class="yr">19</td></tr>
+        <tr><td><i>контроль:</i> «Ковальський» / «Іваненко»</td><td class="yr">1 688 / 4 201</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>Навіщо тут контрольні запити.</b> Пошук по ПІБ на сайті НАЗК уміє мовчки віддавати порожню видачу, тому негативний результат без контролю нічого не вартий. Тут контроль спрацював: 1 688 і 4 201 документи показують, що стелі у 100 записів немає — отже «100» для прізвища Житар це справжня кількість, і її перебрано поіменно. У локальній базі з 1,49 млн декларацій Петра Івановича теж немає — ні як декларанта, ні як названої кимось особи.
+  </div>
+
+  <div class="note">
+    <b>Відсутність декларацій тут нічого не приховує.</b> <a href="https://uk.wikipedia.org/wiki/%D0%96%D0%B8%D1%82%D0%B0%D1%80_%D0%9F%D0%B5%D1%82%D1%80%D0%BE_%D0%86%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%87">Петро Іванович Житар</a>, 18.03.1951 р. н., генерал-майор СБУ: з 1979 року в КДБ у Тернополі, з 1994-го очолював Волинське обласне управління СБУ, де отримав генеральське звання й орден Богдана Хмельницького. Електронне декларування запрацювало у 2016 році, коли йому було 65 і він давно був поза службою. Реєстр до нього просто не дотягується — як і до будь-кого, хто пішов з посади до 2016 року.
+  </div>
+
+  <div class="note crit">
+    <b>Версію підтверджує не Реєстр, а збіг органу.</b> Той самий життєпис фіксує: <b>у 2002 році Петро Житар працював начальником СБУ в Чернівецькій області</b>, а з 2001 року живе в Чернівцях; родове коріння — село Волошкове Сокирянського району Чернівецької області, звідки походив його батько Іван. Перша ж декларація Олександра <b>Петровича</b> Житара — при звільненні у 2016 році з посади <b>слідчого УСБУ в Чернівецькій області</b>, тобто того самого обласного управління. Збігаються по батькові, орган, область і родова прив’язка.
+  </div>
+
+  <div class="note">
+    <b>Чого бракує для доказу.</b> Це щільний непрямий ланцюжок, а не встановлена спорідненість. Декларації тут безсилі за побудовою: батьки не є членами сім’ї, якщо не проживають спільно, тому в жодній із 11 декларацій Олександра Житара батька не названо — і не мало бути названо. Підтвердження шукається поза Реєстром: Держреєстр речових прав (спільне чи успадковане майно, спільна адреса) та ЄДР.
+  </div>
+
+  <div class="note">
+    <b>Чого це ще не означає.</b> Оренда житла у працівника держкомпанії оборонного експорту не є порушенням сама по собі — вона стає предметом перевірки лише якщо ринковість ціни не підтверджується або якщо між сторонами є службовий перетин. Ціна оренди в деклараціях не вказується взагалі, тому з наявних документів це питання не розв'язати.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">09</span>Фіскальна вісь</h2>
+  <div class="body">
+    <p>Ж. Ю. О. — дружина власника квартири, яку родина Ковальського орендує з вересня 2023 року. У неї є <b>власні чотири декларації</b>, і вони відкривають вісь, якої в цьому досьє не було: <b>Головне управління ДФС у Чернівецькій області</b>.</p>
+    <p>Тотожність підтверджується самими документами, а не збігом прізвищ: у всіх чотирьох вона вказує чоловіка — Житаря Олександра Петровича — і доньку, тобто це та сама родина.</p>
+  </div>
+
+  <div class="docs" style="margin-top:18px">
+    <div class="doc"><span class="y">2016</span><span class="t">Щорічна · 23.03.2017<em>головний державний інспектор, ГУ ДФС у Чернівецькій області</em></span><a href="https://public.nazk.gov.ua/documents/6f33c23e-5871-4b63-bb4c-77caa36dd9e6">6f33c23e</a></div>
+    <div class="doc"><span class="y">2017</span><span class="t">Щорічна · 26.03.2018<em>головний державний ревізор-інспектор, ГУ ДФС у Чернівецькій області</em></span><a href="https://public.nazk.gov.ua/documents/ee13cd4d-75d8-4256-9164-06e4278f80ac">ee13cd4d</a></div>
+    <div class="doc"><span class="y">2018</span><span class="t">При звільненні · 06.11.2018<em>головний державний ревізор-інспектор — вихід із фіскальної служби</em></span><a href="https://public.nazk.gov.ua/documents/142605f3-a839-4530-a726-107d3c2b8a81">142605f3</a></div>
+    <div class="doc"><span class="y">2018</span><span class="t">Після звільнення · 19.03.2019<em>остання декларація; 2 278 ₴ зарплати від ГУ ДФС, ЄДРПОУ 39392513</em></span><a href="https://public.nazk.gov.ua/documents/1ab767f7-3be8-4d12-86f9-9f26f622ae73">1ab767f7</a></div>
+  </div>
+
+  <h3>Квартира і Mercedes на 193 тисячі задекларованого доходу</h3>
+  <div class="body">
+    <p>Її власний дохід за всі три роки — символічний, і це узгоджується з доглядом за дитиною: 1 300 ₴ виплат на дитину до 3 років (2016), 750 ₴ від профспілки (2017) і <b>2 278 ₴ зарплати від ГУ ДФС</b> у 2018-му, коли служба закінчилася. Решта доходу родини записана на чоловіка — і джерело в усіх трьох роках зазначене лише як «<b>юридична особа приватного права</b>», без назви й без коду.</p>
+  </div>
+
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Рік</th><th>Дохід чоловіка</th><th>Її власний дохід</th><th>Разом</th><th>Що з'явилося в майні</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">2016</td><td class="num">111 072</td><td class="num">1 300</td><td class="num">112 372</td><td>Mercedes-Benz ML 250 CDI 4MATIC, 2013 р. — набуто 12.04.2016</td></tr>
+        <tr><td class="yr">2017</td><td class="num">59 429</td><td class="num">750</td><td class="num">60 179</td><td>Квартира 70,3 м² — набуто 08.06.2017</td></tr>
+        <tr><td class="yr">2018</td><td class="num">18 734</td><td class="num">2 278</td><td class="num">21 012</td><td>—</td></tr>
+        <tr class="break"><td class="yr">Разом</td><td class="num">189 235</td><td class="num">4 328</td><td class="num">193 563</td><td>дві позиції, обидві записані на чоловіка</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note crit">
+    <b>Обидва набуття припадають рівно на це вікно.</b> Позашляховик Mercedes ML 250 CDI 4MATIC 2013 року випуску з'являється 12 квітня 2016-го, квартира 70,3 м² — 8 червня 2017-го. Задекларований дохід родини за три роки — <b>193 563 ₴</b>. У всіх її деклараціях розділи «Грошові активи» та «Фінансові зобов'язання» <b>порожні повністю</b>: ні готівки, ні рахунків, ні кредиту під ці набуття. До 2017 року родина жила у квартирі 62,8 м², власником якої вказана третя особа — <b>К. О. А.</b> (у Реєстрі декларацій не значиться).
+  </div>
+
+  <div class="note">
+    <b>Чого ця арифметика не доводить.</b> Вартість обох об'єктів у деклараціях — «[Не відомо]», а дата набуття права не означає купівлі: це міг бути подарунок або спадщина. Видатки члена сім'ї в декларації не відображаються взагалі, тож порожній розділ 14 тут нічого не важить — на відміну від порожніх грошових активів, які охоплюють і родину. Головне ж обмеження в тому, що <b>чоловік у 2016–2019 роках декларантом не був</b>: його доходи видно лише через її декларації й лише в тій частині, яку вона вказала. Повної картини надходжень родини Реєстр за ці роки не дає.
+  </div>
+
+  <h3>Чотири біографії, один орган</h3>
+  <div class="body">
+    <p>Фіскальна служба з'являється в цій історії надто часто, щоб не звести її в одну таблицю.</p>
+  </div>
+
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Хто</th><th>Звʼязок із фіскальною службою</th><th>Роки</th></tr></thead>
+      <tbody>
+        <tr><td><b>Ковальський Антон Анатолійович</b></td><td>начальник відділу нагляду за додержанням законів <b>органами фіскальної служби</b></td><td class="yr">2015–2016</td></tr>
+        <tr class="break"><td><b>Ковальський Антон Анатолійович</b></td><td>кандидат на посаду заступника начальника управління <b>ГУ ДФС у Вінницькій області</b> — посаду не обійняв</td><td class="yr">13.04.2017</td></tr>
+        <tr><td><b>Ж. Ю. О.</b><br>дружина власника квартири 92 м²</td><td>головний державний інспектор, потім ревізор-інспектор <b>ГУ ДФС у Чернівецькій області</b></td><td class="yr">2016–2018</td></tr>
+        <tr><td><b>В. О. М.</b><br>власниця квартири 68 м²</td><td>головний державний інспектор Коломийської ОДПІ <b>ГУ ДФС в Івано-Франківській області</b></td><td class="yr">2016–2017</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>Обидві чернівецькі квартири, які орендувала родина Ковальського, ведуть у фіскальну службу.</b> Першу здавала колишня податкова інспекторка, другу — чоловік колишньої ревізор-інспекторки того самого відомства. Сам Ковальський у 2015–2016 роках наглядав саме за органами фіскальної служби, а у квітні 2017-го подавався туди на посаду.
+  </div>
+
+  <h3>Вузол В. О. М.: одна квартира — три прокурори</h3>
+  <div class="body">
+    <p>Перевірка спільних названих осіб між шістьма фігурантами дала <b>рівно один спільний вузол</b> — і це не Житар. В. О. М. фігурує в деклараціях трьох різних прокурорів.</p>
+  </div>
+
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Прокурор</th><th>Посада на момент декларування</th><th>Обʼєкт</th><th>Право з</th></tr></thead>
+      <tbody>
+        <tr class="break"><td><b>Ковальський Антон Анатолійович</b></td><td>керівник Чернівецької обласної прокуратури</td><td>квартира <b>68 м²</b>, Чернівці</td><td class="yr">01.01.2022 · декларує за 2022–2023</td></tr>
+        <tr><td><b>Шамалюк Вадим Анатолійович</b><br><a href="https://public.nazk.gov.ua/documents/305935b9-b927-4eca-8958-43de127f3ec7">305935b9</a></td><td>начальник управління нагляду за поліцією Хмельницької обласної прокуратури</td><td><b>та сама квартира 68 м²</b>, Чернівці, з тією самою датою</td><td class="yr">01.01.2022 · декларує за 2025</td></tr>
+        <tr><td><b>Павлюх Василь Ярославович</b><br><a href="https://public.nazk.gov.ua/documents/e1c82286-61d6-4aa5-be97-f29466053547">e1c82286</a></td><td>заступник керівника Чернівецької обласної прокуратури</td><td>квартира <b>68,5 м²</b>, Чернівці — <i>інша площа й інша дата, та сама власниця</i></td><td class="yr">15.07.2025</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note crit">
+    <b>Шамалюк пройшов той самий маршрут, що й Ковальський.</b> Вінницька місцева прокуратура (2015–2020) → Чернівецька обласна (2021–2024) → <b>Хмельницька обласна (2025)</b>. Це не паралельна кар'єра, а той самий ланцюг переведень із тим самим фінішем. І квартиру В. О. М. він декларує з тією самою датою права, що й Ковальський, — 1 січня 2022 року.
+  </div>
+
+  <div class="note">
+    <b>Хронологія орендованого житла Ковальського.</b> 01.01.2022 — 68 м² у Чернівцях від В. О. М.; 04.09.2023 — 92 м² у Чернівцях від Житаря; 2025 — 135,3 м² у Хмельницькому від Ю. Ю. М. (у Реєстрі декларацій не значиться). За 2024 і 2025 роки квартира В. О. М. в його деклараціях уже не фігурує.
+  </div>
+
+  <div class="note">
+    <b>Три застереження, без яких цей розділ читати не можна.</b> Перше: збіг лише за ПІБ. Податкова інспекторка В. О. М. працювала в Коломиї на Івано-Франківщині, а квартири — у Чернівцях; що це одна й та сама особа, з Реєстру не доводиться. Друге: <b>площа — слабкий доказ, і це виміряно</b>. У базі 11 586 записів про квартири в Чернівцях; площа 68 м² трапляється <b>326 разів (2,81 %)</b> і є третьою за поширеністю після 67 м² (3,94 %) та 49 м² (3,85 %). Тобто сам по собі збіг «68 м²» — це типове житло, а не відбиток. Вагу тут дає <b>ім’я власниці</b>, а в парі Ковальський — Шамалюк ще й збіг дати права. Для Павлюха площа інша (68,5 м²) і дата інша (15.07.2025), тож це цілком може бути інша квартира тієї самої власниці. Третє: Шамалюк задекларував квартиру 68 м² лише за 2025 рік, хоча дату права вказав 01.01.2022 — за 2022–2024 він декларував іншу чернівецьку квартиру, 52,3 м², від Ф. В. В..
+  </div>
+
+  <h3>Скільки людей пройшли той самий маршрут</h3>
+  <div class="body">
+    <p>Твердження «Шамалюк пройшов маршрут Ковальського» треба було виміряти, а не залишати враженням. Перевірено всі <b>9 537 щорічних декларацій</b> прокуратур Вінниччини, Чернівеччини та Хмельниччини — і побудовано послідовність областей для кожного декларанта. Кандидатські декларації з підрахунку виключені: вони називають орган, куди людина подавалася, а не де працювала.</p>
+  </div>
+
+  <div class="note crit">
+    <b>Повний маршрут Вінниччина → Чернівці → Хмельницький мають рівно двоє. Це Ковальський і Шамалюк.</b> Більше ніхто. Причому роки переходів збігаються день у день за деклараціями: обидва з’являються в Чернівцях у <b>2021-му</b> і обидва в Хмельницькому у <b>2025-му</b>. Ковальський прийшов у Чернівці керівником обласної прокуратури, Шамалюк — начальником відділу; у Хмельницькому Ковальський знову керівник, Шамалюк — начальник управління нагляду за поліцією.
+  </div>
+
+  <div class="scroll" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Хто</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+      <tbody>
+        <tr class="break"><td><b>Ковальський А. А.</b></td><td>Чернівецька обласна</td><td>Чернівецька обласна</td><td><b>Хмельницька обласна</b></td></tr>
+        <tr class="break"><td><b>Шамалюк В. А.</b></td><td>Чернівецька обласна</td><td>Чернівецька обласна</td><td><b>Хмельницька обласна</b></td></tr>
+        <tr><td>Перч Ю. М.</td><td>Чернівецька обласна</td><td>Чернівецька обласна</td><td>Хмельницька обласна</td></tr>
+        <tr><td>Бежан М. В.</td><td>Чернівецька окружна</td><td>Чернівецька окружна</td><td>Хмельницька обласна</td></tr>
+        <tr><td>Губчак О. В.</td><td>Волинська обласна</td><td>Волинська обласна</td><td>Хмельницька обласна</td></tr>
+        <tr><td>П’ятковський І. М.</td><td>Хмельницька обласна</td><td>Хмельницька обласна, <b>в. о. керівника</b></td><td>Хмельницька, Спеціалізована екологічна прокуратура</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>Когорта переїзду мала, і це її й робить помітною.</b> У Хмельницькій обласній прокуратурі за 2025 рік — <b>255 декларантів</b>. Торік у Чернівецькій обласній із них працювали <b>рівно троє</b>: Ковальський, Шамалюк і Перч. Ще один, Бежан, прийшов із Чернівецької окружної. Тобто разом із новим керівником область поповнили чотири чернівчани — близько 1,6 % складу.
+  </div>
+
+  <div class="note">
+    <b>Хто звільнив крісло.</b> П’ятковський Ігор Миколайович у 2024 році був <b>виконуючим обов’язки керівника</b> Хмельницької обласної прокуратури, а у 2025-му, коли прийшов Ковальський, очолив Спеціалізовану екологічну прокуратуру. Золотухіна Ж. М. перейшла в Хмельницький ще у 2021 році, П’ятковський був там із 2023-го — тож до когорти 2025 року вони не належать, попри чернівецьке минуле.
+  </div>
+
+  <div class="note ok">
+    <b>Чого перевірка не знайшла.</b> З Мустецою та Білокриницьким жодного спільного названого вузла немає — ні прямого, ні через посередника. Сама Ж. Ю. О. не названа в жодній чужій декларації, крім декларацій власного чоловіка. Тобто фіскальна вісь звʼязує Ковальського з його орендодавцями, але не виводить на решту фігурантів досьє. Спільних названих осіб немає і з рештою хмельницької когорти: Перч, Бежан, Губчак і П’ятковський не перетинаються з Ковальським у деклараціях жодним іменем — їхній звʼязок лише службовий.
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">10</span>Корупційні ризики: зведення</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Індикатор</th><th>Стан за деклараціями</th><th>Оцінка</th></tr></thead>
+      <tbody>
+        <tr><td>Стрибок доходу члена сім'ї</td><td>ФОП дружини: 0 → 5,24 млн ₴ у 2023 році, на другий рік його керівництва обласною прокуратурою</td><td><span class="mark m-crit">високий</span></td></tr>
+        <tr><td>Дохід родини не пов'язаний з посадою</td><td>58% сукупного доходу 2023–2025 — підприємництво дружини</td><td><span class="mark m-crit">високий</span></td></tr>
+        <tr><td>Пов'язана особа в силовому секторі</td><td>орендодавець — екс-слідчий СБУ, посадовець держкомпанії оборонного експорту</td><td><span class="mark m-crit">високий</span></td></tr>
+        <tr><td>Користування чужим майном</td><td>6 років без власного житла, 4 власники, зокрема орган місцевого самоврядування</td><td><span class="mark m-warn">середній</span></td></tr>
+        <tr><td>Іноземний рахунок</td><td>BMO, Канада, 6 000 CAD; зник з декларації за 2025 рік без запису про відчуження</td><td><span class="mark m-warn">перевірити</span></td></tr>
+        <tr><td>Прострочене подання</td><td>декларації за 2021 і 2022 роки подано наприкінці 2023 — на початку 2024</td><td><span class="mark m-warn">перевірити</span></td></tr>
+        <tr><td>Спроба перейти в піднаглядний орган</td><td>квітень 2017 — декларація кандидата на посаду в ГУ ДФС у Вінницькій області, тоді як він наглядав за органами фіскальної служби; посаду не обійняв</td><td><span class="mark m-warn">перевірити</span></td></tr>
+        <tr><td>Спільний орендодавець із двома іншими прокурорами</td><td>квартиру 68 м² у Чернівцях від В. О. М. декларують також Шамалюк В. А. і (68,5 м²) Павлюх В. Я. — єдиний спільний вузол між фігурантами</td><td><span class="mark m-crit">високий</span></td></tr>
+        <tr><td>Фіскальна вісь в орендодавцях</td><td>обидві чернівецькі квартири ведуть у ДФС: власниця однієї — колишня податкова інспекторка, дружина власника другої — ревізор-інспекторка ГУ ДФС у Чернівецькій області</td><td><span class="mark m-warn">перевірити</span></td></tr>
+        <tr><td>Активи проти доходу</td><td>0,52 — приріст коштів щороку менший за задекларований дохід</td><td><span class="mark m-ok">низький</span></td></tr>
+        <tr><td>Криптовалюта, цінні папери, корпоративні права</td><td>відсутні в усіх 19 деклараціях</td><td><span class="mark m-ok">низький</span></td></tr>
+        <tr><td>Родичі на держслужбі</td><td>не виявлено жодного, перевірено двома незалежними джерелами</td><td><span class="mark m-ok">низький</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">11</span>Усі 19 документів у Реєстрі</h2>
+  <div class="body">
+    <p>Повний перелік із Реєстру НАЗК. Кожен рядок — посилання на первинний документ. Документи трьох різних видів, і плутати їх не можна: <b>13 щорічних декларацій</b> (дві з них — виправлені), <b>одна декларація кандидата на посаду</b> і <b>п’ять повідомлень про суттєві зміни в майновому стані</b> (ПСЗ). ПСЗ — це не декларація: його подають протягом 10 днів після разового надходження або видатку понад 50 ПМ, і він показує одну конкретну подію.</p>
+  </div>
+  <div class="docs" style="margin-top:18px">
+    <div class="doc"><span class="y">2015</span><span class="t">Щорічна<em>Прокуратура Вінницької області · 22.10.2016</em></span><a href="https://public.nazk.gov.ua/documents/5c15b052-fca9-4a8a-ae76-b3feae3c7e74">5c15b052</a></div>
+    <div class="doc"><span class="y">2016</span><span class="t">Щорічна<em>Прокуратура Вінницької області · 05.03.2017</em></span><a href="https://public.nazk.gov.ua/documents/241862d9-555e-48fe-b657-b663ed1189ac">241862d9</a></div>
+    <div class="doc"><span class="y">2016</span><span class="t">Кандидата на посаду<em>13.04.2017 — заступник начальника управління ГУ ДФС у Вінницькій області. Посаду не обійняв</em></span><a href="https://public.nazk.gov.ua/documents/b020ca9f-b3d1-42b3-86d9-daf50c71e012">b020ca9f</a></div>
+    <div class="doc"><span class="y">2017</span><span class="t">Щорічна<em>Прокуратура Вінницької області · 26.02.2018</em></span><a href="https://public.nazk.gov.ua/documents/6ad8e40a-e1ce-4946-97bf-82a559abd68b">6ad8e40a</a></div>
+    <div class="doc"><span class="y">2018</span><span class="t">ПСЗ<em>03.12.2018 — зарплата 105 532 ₴ від Прокуратури Вінницької області</em></span><a href="https://public.nazk.gov.ua/documents/19d95197-f500-49a9-9417-bac10bc91751">19d95197</a></div>
+    <div class="doc"><span class="y">2018</span><span class="t">Щорічна<em>Прокуратура Вінницької області · 12.03.2019</em></span><a href="https://public.nazk.gov.ua/documents/a68e53f6-64bf-4fad-8170-6ffa44d6c10f">a68e53f6</a></div>
+    <div class="doc"><span class="y">2019</span><span class="t">ПСЗ<em>07.03.2019 — продаж квартири за 877 500 ₴ М. Т. М.</em></span><a href="https://public.nazk.gov.ua/documents/23334066-907a-4221-bbd2-3cf429ee2201">23334066</a></div>
+    <div class="doc"><span class="y">2019</span><span class="t">Щорічна<em>подано 15.04.2020</em></span><a href="https://public.nazk.gov.ua/documents/13aa5dff-5fdd-476e-ae97-5b56c8b5bd4e">13aa5dff</a></div>
+    <div class="doc"><span class="y">2020</span><span class="t">Щорічна<em>подано 23.03.2021</em></span><a href="https://public.nazk.gov.ua/documents/20f79f5d-ec02-41b8-b44f-b3743bd09a7b">20f79f5d</a></div>
+    <div class="doc"><span class="y">2020</span><span class="t">Виправлена щорічна<em>подано 29.03.2021</em></span><a href="https://public.nazk.gov.ua/documents/cc3f76dd-4ddd-47b0-9cb9-2630e104b7a0">cc3f76dd</a></div>
+    <div class="doc"><span class="y">2021</span><span class="t">ПСЗ<em>13.12.2021 — премія за оцінювання якості роботи 168 580 ₴</em></span><a href="https://public.nazk.gov.ua/documents/11645d6e-4d71-479c-b119-2e2dc338a171">11645d6e</a></div>
+    <div class="doc"><span class="y">2021</span><span class="t">Щорічна<em>подано 21.12.2023 — із запізненням</em></span><a href="https://public.nazk.gov.ua/documents/94fe4f59-20ac-4f4e-8e91-a9d3f74cba30">94fe4f59</a></div>
+    <div class="doc"><span class="y">2021</span><span class="t">Виправлена щорічна<em>подано 09.01.2024</em></span><a href="https://public.nazk.gov.ua/documents/54b297b1-07fc-4c9e-921b-cf07acc4c90c">54b297b1</a></div>
+    <div class="doc"><span class="y">2022</span><span class="t">Щорічна<em>подано 14.01.2024 — із запізненням</em></span><a href="https://public.nazk.gov.ua/documents/52faaefd-7c91-4869-bba3-8ed9633d016b">52faaefd</a></div>
+    <div class="doc"><span class="y">2023</span><span class="t">ПСЗ<em>07.12.2023 — щорічна премія 241 920 ₴</em></span><a href="https://public.nazk.gov.ua/documents/6cc5cd88-ceff-4412-a69a-b6348e4cea9e">6cc5cd88</a></div>
+    <div class="doc"><span class="y">2023</span><span class="t">Щорічна<em>перший рік ФОП дружини — 5,24 млн ₴ · 27.03.2024</em></span><a href="https://public.nazk.gov.ua/documents/bfec21eb-0f10-4b91-ab88-844914e8b32e">bfec21eb</a></div>
+    <div class="doc"><span class="y">2024</span><span class="t">Щорічна<em>Чернівецька обласна прокуратура · 20.03.2025</em></span><a href="https://public.nazk.gov.ua/documents/4f912ebb-2f4c-4fce-95a0-9d9e1da4dab4">4f912ebb</a></div>
+    <div class="doc"><span class="y">2025</span><span class="t">ПСЗ<em>02.07.2025 — виплата 637 535 ₴ від Чернівецької обласної прокуратури при переході в Хмельницький</em></span><a href="https://public.nazk.gov.ua/documents/9ca5bb30-5692-46b0-a7ef-d49afc426ab4">9ca5bb30</a></div>
+    <div class="doc"><span class="y">2025</span><span class="t">Щорічна<em>Хмельницька обласна прокуратура · 24.03.2026</em></span><a href="https://public.nazk.gov.ua/documents/77abca96-ffa2-4206-bdb2-bb09bff43474">77abca96</a></div>
+  </div>
+
+  <div class="note">
+    <b>Що показують п’ять ПСЗ.</b> Це разові надходження, які довелося повідомити окремо: зарплата 105 532 ₴ (2018), продаж вінницької квартири за 877 500 ₴ (2019), <b>премія за результатами оцінювання якості роботи 168 580 ₴</b> (грудень 2021) і <b>щорічна премія 241 920 ₴</b> (грудень 2023) — обидві від Чернівецької обласної прокуратури, — та виплата <b>637 535 ₴</b> від неї ж 2 липня 2025 року, коли він уже очолював Хмельницьку обласну прокуратуру. Остання за розміром і моментом схожа на остаточний розрахунок при переведенні.
+  </div>
+
+  <div class="note crit">
+    <b>Квітень 2017: спроба перейти у фіскальну службу.</b> Єдина справжня декларація кандидата — від 13.04.2017, на посаду заступника начальника управління ГУ ДФС у Вінницькій області. На той момент Ковальський був <b>начальником відділу нагляду за додержанням законів саме органами фіскальної служби</b>, тобто подався в орган, який наглядав. Посаду він не обійняв: наступна щорічна декларація за 2017 рік знову подана з прокуратури.
+  </div>
+
+  <h3>Усі 11 документів Житаря О. П.</h3>
+  <div class="body">
+    <p>Декларант 1095751. Повний перелік із Реєстру; у дужках — дата подання. Квартира 92,3 м², яку орендує родина Ковальського, фігурує в деклараціях за 2021 і 2025 роки.</p>
+  </div>
+  <div class="docs" style="margin-top:14px">
+    <div class="doc"><span class="y">2016</span><span class="t">При звільненні · 31.03.2017<em>УСБУ в Чернівецькій області — звільнений з посади слідчого</em></span><a href="https://public.nazk.gov.ua/documents/6abd2c5f-e483-4a97-9f3d-94e77271ff92">6abd2c5f</a></div>
+    <div class="doc"><span class="y">2019</span><span class="t">Кандидата · 23.01.2020<em>на посаду прокурора Офісу генпрокурора</em></span><a href="https://public.nazk.gov.ua/documents/ed5da0da-fd8a-44c0-a8a9-86364916bf4f">ed5da0da</a></div>
+    <div class="doc"><span class="y">2019</span><span class="t">Кандидата, виправлена · 27.01.2020<em>на посаду прокурора Офісу генпрокурора</em></span><a href="https://public.nazk.gov.ua/documents/af8368fc-19c7-4a47-a63c-8bc48b21d6d8">af8368fc</a></div>
+    <div class="doc"><span class="y">2019</span><span class="t">Кандидата · 07.02.2020<em>на посаду прокурора Спеціалізованої антикорупційної прокуратури</em></span><a href="https://public.nazk.gov.ua/documents/7eb83ac6-7b51-4a7d-9778-9f000e54fc0f">7eb83ac6</a></div>
+    <div class="doc"><span class="y">2019</span><span class="t">Кандидата · 24.05.2020<em>на посаду начальника відділу ДП «Укроборонсервіс» — саме цю він і обійняв</em></span><a href="https://public.nazk.gov.ua/documents/bf74928b-d971-440b-a221-5fa0195d32e8">bf74928b</a></div>
+    <div class="doc"><span class="y">2020</span><span class="t">Щорічна · 28.02.2021<em>ДП «Укроборонсервіс», начальник відділу</em></span><a href="https://public.nazk.gov.ua/documents/5339a652-f589-4789-a40f-f4a71e5f281d">5339a652</a></div>
+    <div class="doc"><span class="y">2020</span><span class="t">Виправлена щорічна · 05.03.2021<em>ДП «Укроборонсервіс», начальник відділу</em></span><a href="https://public.nazk.gov.ua/documents/8a4026b1-d95a-4207-96ff-06c7950ba9e4">8a4026b1</a></div>
+    <div class="doc"><span class="y">2021</span><span class="t">Щорічна · 30.03.2022<em>ДП «Укроборонсервіс», начальник відділу</em></span><a href="https://public.nazk.gov.ua/documents/1fabaecc-f6e2-4243-a8d2-88d0bbd6714f">1fabaecc</a></div>
+    <div class="doc"><span class="y">2021</span><span class="t">Виправлена щорічна · 31.03.2022<em>ДП «Укроборонсервіс», начальник відділу</em></span><a href="https://public.nazk.gov.ua/documents/d95b1fde-f581-49bb-b0c3-4aa31228b047">d95b1fde</a></div>
+    <div class="doc"><span class="y">2025</span><span class="t">Кандидата · 03.09.2026<em>на посаду члена комісії з перетворення ДК «Укрспецекспорт»</em></span><a href="https://public.nazk.gov.ua/documents/11c182e9-31d3-4588-88c7-71acb975fcad">11c182e9</a></div>
+    <div class="doc"><span class="y">2025</span><span class="t">Кандидата, виправлена · 08.09.2026<em>на посаду члена комісії з перетворення ДК «Укрспецекспорт»</em></span><a href="https://public.nazk.gov.ua/documents/7ff5974b-b55a-407c-b9f6-e85433571a1f">7ff5974b</a></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">12</span>Як це зроблено і чого тут немає</h2>
+  <div class="body">
+    <p><b>Джерела.</b> Єдиний державний реєстр декларацій НАЗК — 19 повних документів декларанта 3985 і всі 11 документів декларанта 1095751, розібрані посекційно. Локальна база проєкту — 1 489 554 декларації для порівняння зарплат і пошуку родичів.</p>
+    <p><b>Пошук родичів.</b> Відкрите API НАЗК пошуку за ПІБ не має: параметри імені мовчки ігноруються і повертають повну вибірку, тож негативний результат там нічого не означав би. Пошук за ПІБ працює лише на сайті Реєстру, і перевірявся контрольним запитом на самого Ковальського — рівно 19 документів, збіг із API. Знайдені 15 документів на ім'я «Ковальська Оксана Іванівна» належать двом іншим жінкам: чоловіки в їхніх деклараціях — Андрій Ярославович і Микола Іванович.</p>
+    <p><b>Валюта.</b> Готівка й рахунки приведені до гривні за курсом НБУ на 31 грудня відповідного року; для 2025-го використано орієнтир 42,00 ₴/$ і 49,00 ₴/€.</p>
+    <p><b>Чого тут немає.</b> Ціни оренди житла — декларації її не містять. Реєстр речових прав, ЄДР по ФОП дружини, дані про доходи до 2015 року — поза межами цього аналізу. Публічна частина Реєстру також не показує документи, вилучені з відкритого доступу на період воєнного стану.</p>
+  </div>
+  <div class="disclaimer">
+    Презумпція невинуватості. Усе викладене — аналіз офіційно задекларованих відомостей і зіставлення їх між собою. Розбіжність у декларації не є доказом правопорушення, а зафіксований зв'язок між особами не є доказом змови. Там, де висновок є припущенням, це сказано прямо.
+  </div>
+</section>
+
+<footer>
+  <p>Побудовано з первинних декларацій НАЗК · 30 документів розібрано · 18 вересня 2026</p>
+  <p>Ідентифікатор декларанта 3985 · останній документ подано 24.03.2026</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var fig=document.querySelector('.chart'), tip=document.getElementById('tip');
+  if(!fig||!tip) return;
+  var f=function(n){return Number(n).toLocaleString('uk-UA').replace(/\u00A0/g,' ');};
+  fig.querySelectorAll('.bar').forEach(function(g){
+    var show=function(e){
+      var r=fig.getBoundingClientRect();
+      tip.hidden=false;
+      tip.innerHTML='<b>'+g.dataset.y+'</b><br>готівка '+f(g.dataset.c)+
+                    ' ₴<br>рахунки '+f(g.dataset.b)+' ₴<br>разом '+f(g.dataset.t)+' ₴';
+      var x=(e.clientX-r.left)+14, y=(e.clientY-r.top)-10;
+      if(x+190>r.width) x=(e.clientX-r.left)-190;
+      tip.style.left=x+'px'; tip.style.top=y+'px'; tip.style.opacity='1';
+    };
+    g.addEventListener('mousemove',show);
+    g.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var fig=document.querySelectorAll('.chart')[1], tip=document.getElementById('tip2');
+  if(!fig||!tip) return;
+  var f=function(n){var v=Math.abs(Number(n)).toLocaleString('uk-UA').replace(/\u00A0/g,' ');
+                    return (Number(n)<0?'\u2212':'')+v;};
+  fig.querySelectorAll('.bar2').forEach(function(g){
+    g.addEventListener('mousemove',function(e){
+      var r=fig.getBoundingClientRect();
+      tip.hidden=false;
+      tip.innerHTML='<b>'+g.dataset.y+'</b><br>дохід '+f(g.dataset.i)+
+                    ' \u20b4<br>приріст активів '+f(g.dataset.d)+
+                    ' \u20b4<br>осіло '+g.dataset.r+'%';
+      var x=(e.clientX-r.left)+14, y=(e.clientY-r.top)-10;
+      if(x+210>r.width) x=(e.clientX-r.left)-210;
+      tip.style.left=x+'px'; tip.style.top=y+'px'; tip.style.opacity='1';
+    });
+    g.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+  });
+})();
+</script>
+
+</body></html>
